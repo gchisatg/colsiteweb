@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hot Beans Application Submitted</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/fonts.css" rel="stylesheet">
+    <style>
+        .grid-t {
+            padding: 20px;
+            padding-left: 15px;
+            margin: 10px;
+            background-color: #f2f2f2;
+            border: 2px solid #000;
+        }
+
+        .grid-t iframe {
+            width: 426px;
+            height: 240px;
+        }
+
+        .grid-t h4 {
+            padding: 0;
+            margin: 0;
+        }
+
+        @media only screen and (max-width: 1700px) {
+            div.container {
+                display: unset;
+            }
+            .grid-t iframe {
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+
+<body>
+    <div class="nav">
+        <img class="logobar" src="assets/image/logobar.png" alt="Logo" onclick="window.location = './index.htm'">
+        <div class="social">
+            <img class="social" src="svg/facebook.svg" id="facebook"
+                onclick="window.location.replace('https://www.facebook.com/hotbeans__uk__/')" alt="Facebook">
+            <img class="social" src="svg/twitter.svg"
+                onclick="window.location.replace('https://www.twitter.com/hotbeans__uk__/')" alt="Twitter">
+            <img class="social" src="svg/instagram.svg"
+                onclick="window.location.replace('https://www.instagram.com/hotbeans__uk__/')" alt="Instagram">
+        </div>
+    </div>
+    <div class="navbutts">
+        <p> <a href="./index.htm">Home</a> / <a href="./jobs.htm">Jobs</a> / <a href="./hires.htm">Hires</a> / <a
+                href="./resources.htm">Learn</a></p>
+    </div>
+    <div class="mainpad wborder">
+        <p class="title">Application Sent<br><i class="subtitle">We will get back to you<span id="name"></span> as soon
+                as possible.</i></p>
+        <p>Meanwhile why don't you visit other sections of the site in preparation.</p>
+        <script>
+            let params = new URLSearchParams(window.location.search);
+            let name = params.get("name");
+            if (name) {
+                document.getElementById("name").innerHTML = ", " + name + ","
+            }
+        </script>
+    </div>
+    <div class="mainpad wshade wborder">
+        <h2>Our Recommended Content Creators</h2>
+        <p>Below is a few content creators hand-picked from our newest hires, maybe they could jog your memory before
+            your interview.</p>
+        <br>
+        <div class="container">
+            <div class="grid-t">
+                <div>
+                    <h4>Fireship.IO</h4>
+                    <p>"Fireship.io is an ecosystem of detailed and practical resources for developers who want to build
+                        and ship high-quality apps" <a href="https://fireship.io/">link</a></p>
+                    <br>
+                    <iframe src="https://www.youtube.com/embed/DHjqpvDnNGE" title="JavaScript in 100 Seconds"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="grid-t">
+                <h4>freeCodeCamp.org </h4>
+                <p>"Learn to code for free."<a href="https://www.freecodecamp.org/learn">link</a></p>
+                <br>
+                <iframe style="padding-top: 20px;" src="https://www.youtube.com/embed/YS4e4q9oBaU"
+                    title="Learn Go Programming - Golang Tutorial for Beginners" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="grid-t">
+                <h4>Web Dev Simplified</h4>
+                <p>"Web Dev Simplified is all about teaching web development skills and techniques in an efficient and
+                    practical manner."<a href="https://courses.webdevsimplified.com/">link</a></p>
+                <br>
+                <iframe src="https://www.youtube.com/embed/hQAHSlTtcmY" title="Learn React In 30 Minutes"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+        </div><br>
+        <a href="./resources.htm">See more resources here</a>
+    </div>
+
+
+    <div class="footer bfooter">
+        <p class="footertxt">HOT BEANS</p>
+        <p class="cc"><a href="#">Terms of Use</a> / <a href="#">Cookie Policy</a> / <a href="#">Copyright</a> </p>
+    </div>
+</body>
+
+</html>

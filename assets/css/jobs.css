@@ -1,0 +1,45 @@
+
+.avatar {
+    padding: 40px;
+    /* padding-left: 300px; */
+    background-color: rgb(16,16,16);
+    width: 220px;
+    height: auto;
+    border-radius: 10%;
+    /* height: 300px; */
+    text-align: center;
+}
+
+.avatar h2 {
+    font-size: 17px;
+}
+
+.avatar p {
+    font-size: 15px;
+}
+
+
+.avatar img {
+    border-radius: 50%;
+    width: 110px;
+}
+
+div.container {
+    padding-left: 19%;padding-right: 15%;
+}
+
+@media only screen and (max-width: 1200px) {
+    div.container {
+        padding: 0;
+        display: unset;
+    }
+    .avatar {
+        margin-left: 35%;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .avatar {
+        margin: 0;
+    }
+}

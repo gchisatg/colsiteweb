@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Beans</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/fonts.css" rel="stylesheet">
+    <style>
+        .logo {
+            width: 270px;
+        }
+        @media only screen and (max-width: 650px) {
+            .logo {
+                display: none;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+
+<body>
+    <div class="nav">
+        <img class="logobar" src="assets/image/logobar.png" alt="Logo">
+        <div class="social">
+            <img class="social" src="svg/facebook.svg" id="facebook"
+                 onclick="window.location.replace('https://www.facebook.com/hotbeans__uk__/')" alt="Facebook">
+            <img class="social" src="svg/twitter.svg"
+                onclick="window.location.replace('https://www.twitter.com/hotbeans__uk__/')" alt="Twitter">
+            <img class="social" src="svg/instagram.svg"
+                onclick="window.location.replace('https://www.instagram.com/hotbeans__uk__/')" alt="Instagram">
+        </div>
+    </div>
+    <div class="navbutts"><p> <a class="cur" href="./index.htm">Home</a> / <a href="./jobs.htm">Jobs</a> / <a href="./hires.htm">Hires</a> / <a href="./resources.htm">Learn</a></p></div>
+    <div style="padding-top: 3%;" class="mainpad wborder">
+        <!-- <h1>HOT BEANS</h> -->
+        <div class="container">
+            <div class="grid-t">
+                <p class="title">HOT BEANS <br><i class="subtitle">A Web Development company looking for new hires.</i></p>
+                <p>It could be you!</p>
+                <button onclick="document.getElementById('about').scrollIntoView();" style="margin-top: 30px;margin-left: 15px;" class="mainbutt">Learn more</button>
+                <button onclick="window.location = './jobs.htm'" style="margin-top: 30px;margin-left: 15px;" class="mainbutt">Apply now</button>
+            </div>
+            <div class="grid-t">
+                <img class="logo" src="assets/image/logo.png">
+            </div>
+        </div>
+    </div>
+    <div class="mainpad wshade wborder">
+        <img style="float:right;margin: 0;padding:0;margin-right: 13%;border-radius: 5%;margin-top:5px;width: 300px;border: #f00 2px solid;"
+             src="assets/image/serverguy.jpg" alt="guy">
+        <h2 id="about">About <i style="font-size: 23px;" class=title>Hot Beans</i></h2>
+        <p>Hot beans is a Web Development company that was founded in 2012, since then we have worked with many
+            companies and individuals in creating high-performance websites for
+            a fraction of the price of the competition and its all thanks to our Hard working employees that we are able
+            to keep this track record.
+        </p>
+        <h3>Our Community</h3>
+        <p>At Hot Beans you can expect to find a strong community in and out of the workplace where we can support one
+            another and bring the best performance out of everyone around us such as our fortnightly bowling nights
+            payed by Hot Beans.</p>
+    </div>
+    <div class="mainpad wborder">
+        <h2>Meet Our Newest Hires</h2>
+        <img style="margin-top: 15px;border: #f00 1px solid;border-radius: 5%;" width="50%" src="assets/people/community.jpg">
+        <p>Why not take a look at our newest hires because you could be joining them soon enough <br>
+           These are only a fraction of our new hires and we are hiring more everyday, we hope you can join us.</p>
+        <a href="hires.htm">Read More</a>
+    </div>
+    <div class="mainpad">
+        <h2>Get In Touch</h2>
+        <p>If the above sounds intresting to you and you want a fulfilling work expierence then apply and we will contact you for a follow up
+            interview if you fullfill the requirements. 
+        </p>
+
+        <h3>Web Development</h3>
+        <button onclick="window.location = './jobs.htm#HTML'" class="mainbutt">HTML, CSS, JS</button>
+        <button onclick="window.location = './jobs.htm#JQUERY'" class="mainbutt">JQuery and CanvasJS</button>
+        <button onclick="window.location = './jobs.htm#TS'" class="mainbutt">NEW: TypeScript</button>
+        <h3>Back-End Development</h3>
+        <button onclick="window.location = './jobs.htm#GO'" class="mainbutt">Golang</button>
+        <button onclick="window.location = './jobs.htm#SQL'"class="mainbutt">SQL</button>
+        <button onclick="window.location = './jobs.htm#PY'"class="mainbutt">Python</button>
+        <h3>Other</h3>
+        <a href="jobs.htm">A full list of avaiable jobs are avaiable here</a>
+    </div>
+
+    <div class="footer">
+        <p class="footertxt">HOT BEANS</p>
+        <p class="cc"><a href="#">Terms of Use</a> / <a href="#">Cookie Policy</a> / <a href="#">Copyright</a> </p>
+    </div>
+</body>
+
+</html>

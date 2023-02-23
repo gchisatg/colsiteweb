@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Beans Application</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/fonts.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <style>
+        label {
+            font-family: 'Noto Sans', sans-serif;
+        }
+        select, input {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            /* border-radius: 2%; */
+        }
+
+        .f {
+            width: unset;
+            height:unset;
+            font-size:unset;
+            /*color: transparent;*/
+            background-color: unset;
+            background-image: none;
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            margin: 5px;
+            float: right;
+        }
+        input[type="file"] {
+            display: none;
+        }
+
+        .failed {
+            border: 1px solid #f00;
+        }
+
+        .formholder {
+            background-color: white;
+            padding: 40px 60px 40px 40px;
+            width: 500px;
+            border: 2px solid #000;
+            border-radius: 5%;
+        }
+        a {
+            color: unset;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <img class="logobar" src="assets/image/logobar.png" alt="Logo" onclick="window.location = './index.htm'">
+        <div class="social">
+            <img class="social" src="svg/facebook.svg" id="facebook"
+                 onclick="window.location.replace('https:\/\/www.facebook.com/hotbeans__uk__/')" alt="Facebook">
+            <img class="social" src="svg/twitter.svg"
+                onclick="window.location.replace('https:\/\/www.twitter.com/hotbeans__uk__/')" alt="Twitter">
+            <img class="social" src="svg/instagram.svg"
+                onclick="window.location.replace('https:\/\/www.instagram.com/hotbeans__uk__/')" alt="Instagram">
+        </div>
+    </div>
+    <div class="navbutts"><p> <a href="./index.htm">Home</a> / <a href="./jobs.htm">Jobs</a> / <a href="./hires.htm">Hires</a> / <a href="./resources.htm">Learn</a></p></div>
+    <div style="display: flex;align-items: center;justify-content: center;margin-top: 45px">
+        <div class="formholder">
+            <h2>Application for work placement at Hot Beans</h2>
+            <form action="./appres.htm">
+                <label for="name">Full Name:</label>
+                <input autocomplete="false" type="text" name="name" id="name" placeholder="Full Name">
+                <label for="dob">Date of Birth:</label>
+                <input autocomplete="false" type="date" name="dob" id="dob" placeholder="dd/mm/yyyy">
+                <label for="position">Position:</label>
+                <select autocomplete="false" class="input" name="position" id="position">
+                    <optgroup label="Web Development"></optgroup>
+                    <option value="Native HTML, CSS and JavaScript" id="pos-HTML">Native HTML, CSS and JavaScript</option>
+                    <option value="JQuery" id="pos-JSQ">JQuery Development</option>
+                    <option value="TypeScript" id="pos-TS">TypeScript Development</option>
+                    <optgroup label="Back-End Development"></optgroup>
+                    <option value="Golang Application Development" id="pos-GOA">Golang Application Development</option>
+                    <option value="Golang Server Development" id="pos-GOS">Golang Server Development</option>
+                    <option value="SQL DataStore Manager" id="pos-SQL">SQL DataStore Manager</option>
+                    <option value="Python Application Development" id="pos-PY">Python Application Development</option>
+                </select>
+                <label for="phone">Phone Number (+44):</label>
+                <input autocomplete="false" type="text" name="phone" id="phone" placeholder="+447222555555">
+                <label for="email">Email:</label>
+                <input autocomplete="false" type="email" name="email" id="email" placeholder="example@example.com">
+                <label class="f">
+                    <input id="cvu-f" onchange="inputchange(event)" type="file"/>
+                    <span id="cvu">CV Upload: None </span>
+                </label>
+                <label class="f">
+                    <input id="idu-f" onchange="inputchange(event)" type="file"/>
+                    <span id="idu">ID Photo: None </span>
+                </label>
+                <input autocomplete="false" class="f" type="file" name="f" id="f">
+                <br>
+                <a class="f" style="float: left" onclick="sendform(this.parentNode)">Submit</a>
+            </form>
+        </div>
+    </div>
+    <script>
+        let id = new URLSearchParams(window.location.search).get("op")
+        if (id) {
+            document.getElementById("pos-" + id).selected = true;
+        }
+        function inputchange(evt) {
+            console.log(evt.target)
+            console.log(evt.target.id)
+            console.log(evt.target.id.slice(0, -2));
+            console.log(evt.target.id.slice(0, -2));
+            console.log(evt.target.files[0].name)
+            if(evt.target.files[0].name) {
+                if (evt.target.id === "idu-f")
+                    document.getElementById(evt.target.id.slice(0, -2)).innerHTML = "ID Photo: " +  evt.target.files[0].name;
+                else
+                    document.getElementById(evt.target.id.slice(0, -2)).innerHTML = "CV Upload: " +  evt.target.files[0].name;
+            }
+        }
+
+        function sendform(theform) {
+            // Validation first
+            let dom = document.getElementById("name");
+            let failed = false;
+            if (!dom.value) {
+                failed = true;
+                dom.classList.add("failed");
+            }else if (dom.classList.contains("failed"))
+                dom.classList.remove("failed");
+
+            // RegEx for an GB mobile number
+            // https://regexlib.com/(X(1)A(MKdY7w-h8EvV-sVcEeHVj5fLmIuUew0OuNUeZpx0VfjzK-zuj1gAY3_k9drP6mB3OPAsUmGYVhn52Nlteg-FK26_T2WpKvjgwXOCnnhfRH_H1kNRHEdCFZhJG6r9hHS3_EijJSwrWP08kvbsRzCccsTRdI3w6E3FjCArb5HG62zfzVta0Cdw3rW97Y12sVEL0))/UserPatterns.aspx?authorid=d95177b0-6014-4e73-a959-73f1663ae814&AspxAutoDetectCookieSupport=1
+            let rg = new RegExp("^(((\\+44\\s?\\d{4}|\\(?0\\d{4}\\)?)\\s?\\d{3}\\s?\\d{3})|((\\+44\\s?\\d{3}|\\(?0\\d{3}\\)?)\\s?\\d{3}\\s?\\d{4})|((\\+44\\s?\\d{2}|\\(?0\\d{2}\\)?)\\s?\\d{4}\\s?\\d{4}))(\\s?\\#(\\d{4}|\\d{3}))?$");
+            dom = document.getElementById("phone");
+            if (!rg.test(dom.value)) {
+                // invalid
+                failed = true;
+                dom.classList.add("failed");
+            }else if (dom.classList.contains("failed"))
+                dom.classList.remove("failed");
+            rg = new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
+            dom = document.getElementById("email")
+            if (!rg.test(dom.value)) {
+                failed = true;
+                dom.classList.add("failed");
+                console.debug("Email was invalid");
+            }else if (dom.classList.contains("failed"))
+                dom.classList.remove("failed");
+
+            if(failed) return;
+            let urlparams = "?";
+            for(const k of new FormData(theform).entries())
+                urlparams += `${k[0]}=${encodeURIComponent(k[1] ? k[1] : "")}&`;
+
+            window.location = `./appres.htm${urlparams}`;
+        }
+    </script>
+
+    <div class="footer bfooter">
+        <p class="footertxt">HOT BEANS</p>
+        <p class="cc"><a href="#">Terms of Use</a> / <a href="#">Cookie Policy</a> / <a href="#">Copyright</a> </p>
+    </div>
+</body>
+
+</html>
